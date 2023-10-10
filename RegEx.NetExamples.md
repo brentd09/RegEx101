@@ -50,6 +50,20 @@ Don A Wetts Sales Sydney
 '@
 
 
-$RegEx = [regex]::New(' (?=[A-Za-z]+ ?[A-Za-z]+$)','multiline')
+$RegEx = [regex]::New(' (?=[A-Za-z]+ ?[A-Za-z]*$)','multiline')
 $RegEx.Replace($List,',') | ConvertFrom-Csv
 ```
+
+```PowerShell
+$List = @'
+Name    Department    City         
+JohnD   Sales         Sydney       
+KenB    IT            Brisbane    
+LinaB   Accounts      Melbourne 
+DonW    Sales         Sydney
+'@
+
+$RegEx = [regex]::new(' (?=\b)','multiline')
+$RegEx.Replace($List,',') | ConvertFrom-Csv
+```
+
