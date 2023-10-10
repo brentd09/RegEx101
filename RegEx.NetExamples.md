@@ -39,3 +39,17 @@ $CardRegEx = [regex]::New($Pattern,'Multiline,Compiled')
 
 $CardRegEx.Replace($CardNumbers,'XXXX-XXXX-XXXX-$1')
 ```
+
+```PowerShell
+$List = @'
+Name Department City
+John Deering Sales Sydney
+Ken Brooks IT Brisbane
+Lina Bridges Accounts Melbourne
+Don A Wetts Sales Sydney
+'@
+
+
+$RegEx = [regex]::New(' (?=[A-Za-z]+ ?[A-Za-z]+$)','multiline')
+$RegEx.Replace($List,',') | ConvertFrom-Csv
+```
