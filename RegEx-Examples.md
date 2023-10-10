@@ -188,7 +188,7 @@ Peter Piper picked a peck of pickled peppers
 ```
 
 
-## RegEx 
+## RegEx Why is the second pe in peppers not matched
 
 ```RegEx Negated Character Set
 p[^lor]
