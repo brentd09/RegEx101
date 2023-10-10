@@ -77,18 +77,18 @@ bill@a.c
 ## RegEx Quiz 2
 
 ```RegEx
-(\b[A-Z]{4}-?[0-9]{6}\b).*(?=[Ss]erial)
+(\b[A-Z]{4}-?[0-9]{6}\b)(?=.*[Ss]erial)
 ```
 
 ```Text
-Match
-ZXER123456 Serial
-ZVES235562 serial
-ZFEU-789576 Serial number
-Do not match
-ZFER1234567 serial number
-ZFERT123456 serial
-ASER321321 model number
+Match and Capture the serial number only
+ZXER123456 Serial No. 
+ZVES235562 serial #
+ZFEU-789576 Serial number 
+Do not match or capture
+	ZFER1234567 serial number
+	ZFERT123456 serial
+	ASER321321 model number
 ```
 
 ## RegEx Backreference captures
