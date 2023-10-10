@@ -82,13 +82,13 @@ bill@a.c
 
 ```Text
 Match and Capture the serial number only
-ZXER123456 Serial No. 
-ZVES235562 serial #
-ZFEU-789576 Serial number 
+  ZXER123456 Serial No. 
+  ZVES235562 serial #
+  ZFEU-789576 Serial number 
 Do not match or capture
-	ZFER1234567 serial number
-	ZFERT123456 serial
-	ASER321321 model number
+  ZFER1234567 serial number
+  ZFERT123456 serial
+  ASER321321 model number
 ```
 
 ## RegEx Backreference captures
