@@ -20,6 +20,8 @@ $WeatherCsv = $WeatherRegEx.Replace($WeatherData,'$1,$2,$3,$4,$5,$6,$7,$8')
 $WeatherCsv | ConvertFrom-Csv -Header 'Year','Month','Day','Hour','Minute','Pressure','Temperature','Humidity'
 ```
 
+---
+
 ```PowerShell
 # Credit Card masking
 # Handle spaces or dashes or nothing between the numbers
