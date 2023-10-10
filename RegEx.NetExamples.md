@@ -1,7 +1,9 @@
 ## .NET RegEx Examples
 
 ```PowerShell
-# Receiving raw data from the Analog to Digital weather devices and via Power 
+# Receiving raw data from analog to digital weather devices 
+# Extracting the data via RegEx in Powershell
+
 $WeatherData = @'
 20231010090010242384
 20231010090110232186
