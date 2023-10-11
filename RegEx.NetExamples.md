@@ -1,6 +1,43 @@
 ## .NET RegEx Examples
 
 ```PowerShell
+netstat -ano | Select-String -Pattern 'LISTENING'
+```
+
+---
+
+```PowerShell
+# Matching a Class C IP address
+'221.1.1.2' -match '19[2-9]|2[0-1][0-9]|22[0-3](\.[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-1][0-9]|22[0-5]){3}'
+'229.10.21.62' -match '19[2-9]|2[0-1][0-9]|22[0-3](\.[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-1][0-9]|22[0-5]){3}'
+'191.0.0.12' -match '19[2-9]|2[0-1][0-9]|22[0-3](\.[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-1][0-9]|22[0-5]){3}'
+'10.41.41.42' -match '19[2-9]|2[0-1][0-9]|22[0-3](\.[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-1][0-9]|22[0-5]){3}'
+```
+
+---
+
+```PowerShell
+# Split a string into an array based on a regex pattern
+
+$OctetArray = '131.107.0.3' -split '\.'
+$OctetArray[1]
+```
+
+---
+
+```PowerShell
+# Replace the older em html tag with the newer strong ones
+
+$Html = '<p>Hello there <em>EVERYONE</em> this previous word was emphasised</p>' 
+
+$Html -replace 'em', 'strong' # this line fails as it also alters emphasised
+
+$Html -replace 'em(?=>)', 'strong' # This line succeeds because it needs to match the assertions as well before the replacing action takes place
+```
+
+---
+
+```PowerShell
 # Receiving raw data from analog to digital weather devices 
 # Extracting the data via RegEx in Powershell
 
@@ -40,6 +77,8 @@ $CardRegEx = [regex]::New($Pattern,'Multiline,Compiled')
 $CardRegEx.Replace($CardNumbers,'XXXX-XXXX-XXXX-$1')
 ```
 
+---
+
 ```PowerShell
 $List = @'
 Name Department City
@@ -49,10 +88,11 @@ Lina Bridges Accounts Melbourne
 Don A Wetts Sales Sydney
 '@
 
-
 $RegEx = [regex]::New(' (?=[A-Za-z]+ ?[A-Za-z]*$)','multiline')
 $RegEx.Replace($List,',') | ConvertFrom-Csv
 ```
+
+---
 
 ```PowerShell
 $List = @'
