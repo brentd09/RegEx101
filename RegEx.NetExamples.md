@@ -1,6 +1,8 @@
 ## .NET RegEx Examples
 
 ```PowerShell
+# List only network sockets that are in a LISTENING state
+
 netstat -ano | Select-String -Pattern 'LISTENING'
 ```
 
@@ -8,6 +10,7 @@ netstat -ano | Select-String -Pattern 'LISTENING'
 
 ```PowerShell
 # Matching a Class C IP address
+
 '221.1.1.2' -match '19[2-9]|2[0-1][0-9]|22[0-3](\.[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-1][0-9]|22[0-5]){3}'
 '229.10.21.62' -match '19[2-9]|2[0-1][0-9]|22[0-3](\.[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-1][0-9]|22[0-5]){3}'
 '191.0.0.12' -match '19[2-9]|2[0-1][0-9]|22[0-3](\.[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-1][0-9]|22[0-5]){3}'
@@ -31,7 +34,6 @@ $OctetArray[1]
 $Html = '<p>Hello there <em>EVERYONE</em> this previous word was emphasised</p>' 
 
 $Html -replace 'em', 'strong' # this line fails as it also alters emphasised
-
 $Html -replace 'em(?=>)', 'strong' # This line succeeds because it needs to match the assertions as well before the replacing action takes place
 ```
 
@@ -80,6 +82,10 @@ $CardRegEx.Replace($CardNumbers,'XXXX-XXXX-XXXX-$1')
 ---
 
 ```PowerShell
+# Converting the correct spaces into commas
+# With the person's name having a different amount of words this can be difficult
+# Then converting the CSV into PowerShell Objects
+
 $List = @'
 Name Department City
 John Deering Sales Sydney
@@ -95,6 +101,9 @@ $RegEx.Replace($List,',') | ConvertFrom-Csv
 ---
 
 ```PowerShell
+# Converting a space just before a word boundary to a comma
+# then converting the CSV format into PowerShell Objects 
+
 $List = @'
 Name    Department    City         
 JohnD   Sales         Sydney       
