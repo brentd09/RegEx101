@@ -107,7 +107,7 @@ $RegEx.Replace($List,',') | ConvertFrom-Csv
 # then converting the CSV format into PowerShell Objects 
 
 $List = @'
-Name    Department    City         
+UserID   Department    City         
 JohnD   Sales         Sydney       
 KenB    IT            Brisbane    
 LinaB   Accounts      Melbourne 
