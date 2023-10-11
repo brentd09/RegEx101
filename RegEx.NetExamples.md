@@ -34,7 +34,8 @@ $OctetArray[1]
 $Html = '<p>Hello there <em>EVERYONE</em> this previous word was emphasised</p>' 
 
 $Html -replace 'em', 'strong' # this line fails as it also alters emphasised
-$Html -replace 'em(?=>)', 'strong' # This line succeeds because it needs to match the assertions as well before the replacing action takes place
+$Html -replace 'em(?=>)', 'strong' # This line succeeds because it needs to match
+                                   # the assertions as well before the replacing action takes place
 ```
 
 ---
