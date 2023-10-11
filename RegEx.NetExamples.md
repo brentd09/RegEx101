@@ -42,6 +42,22 @@ $Html -replace 'em(?=>)', 'strong' # This line succeeds because it needs to matc
 ---
 
 ```PowerShell
+# Using RegEx to validate input to the script, this can be used to write a different
+# SQL query based on the type of information supplied to the script
+
+$WhoAreYou = Read-Host -Prompt 'Enter an Email Address or Phone Number to help us identify you'
+
+switch -regex ($WhoAreYou)
+{
+    '.*@\w{2,}(\.\w{2,})*' {Write-Host -ForegroundColor Cyan "$WhoAreYou - is a valid email address"}
+    '\d[ -]*\d[ -]*\d[ -]*\d[ -]*\d[ -]*\d[ -]*\d[ -]*\d[ -]*\d[ -]*\d' {Write-Host -ForegroundColor Green "$WhoAreYou - is a valid phone number"}
+    Default {Write-Host -ForegroundColor Red "$WhoAreYou - Cannot be used to identify you"}
+}
+```
+
+---
+
+```PowerShell
 # Receiving raw data from analog to digital weather devices 
 # Extracting the data via RegEx in Powershell
 
