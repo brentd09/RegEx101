@@ -124,10 +124,10 @@ $RegEx.Replace($List,',') | ConvertFrom-Csv
 
 $List = @'
 UserID   Department    City         
-JohnD   Sales         Sydney       
-KenB    IT            Brisbane    
-LinaB   Accounts      Melbourne 
-DonW    Sales         Sydney
+JohnD    Sales         Sydney       
+KenB     IT            Brisbane    
+LinaB    Accounts      Melbourne 
+DonW     Sales         Sydney
 '@
 
 $RegEx = [regex]::new(' (?=\b)','multiline')
