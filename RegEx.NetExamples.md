@@ -104,16 +104,14 @@ $CardRegEx.Replace($CardNumbers,'XXXX-XXXX-XXXX-$1')
 # With the person's name having a different amount of words this can be difficult
 # Then converting the CSV into PowerShell Objects
 
-$List = @(
-'Name Department City',
-'John Deering Sales Sydney',
-'Ken Brooks IT Brisbane',
-'Lina Bridges Accounts Melbourne',
-'Don A Wetts Sales Sydney'
-)
+# Before the replace
+Write-Output '------------------------------' 
+$List = Get-Content C:\test\NameDepartmentCity.txt
+$List
 
-$RegEx = [regex]::New(' (?=[A-Za-z]+ ?[A-Za-z]*$)','multiline')
-$List | ForEach-Object {$RegEx.Replace($_,',')} | ConvertFrom-Csv
+# After the replace
+Write-Output '------------------------------'
+$List -replace ' (?=[A-Za-z]+ ?[A-Za-z]*$)',',' | ConvertFrom-Csv
 ```
 
 ---
